@@ -24,7 +24,7 @@ public class JornadaController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public MessageResponseDTO createJornada(@RequestBody JornadaDTO jornadaDTO){
+    public MessageResponseDTO criaJornada(@RequestBody JornadaDTO jornadaDTO){
         return jornadaService.saveJornada(jornadaDTO);
     }
 }

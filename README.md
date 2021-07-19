@@ -14,6 +14,7 @@ No contexto da API, basta enviar uma requisição do tipo POST contendo apenas o
 O que foi utilizado:
 * Spring Boot com Gradle e JPA;
 * Banco de dados H2;
-* Lombok + MapStruct.
+* Lombok + MapStruct;
+* Swagger2.
 
 https://digitalinnovation.one/bootcamps/santander-fullstack-developer

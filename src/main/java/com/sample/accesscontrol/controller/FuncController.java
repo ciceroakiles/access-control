@@ -37,7 +37,7 @@ public class FuncController {
     // POST
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public MessageResponseDTO criaPessoa(@RequestBody FuncionarioDTO funcDTO) {
+    public MessageResponseDTO criaFunc(@RequestBody FuncionarioDTO funcDTO) {
         return funcService.criaFunc(funcDTO);
     }
 
