@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,7 +25,8 @@ public class Jornada {
     private Long idJorn;
 
     @OneToOne
-    private Funcionario Func;
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Funcionario func;
 
     private LocalDate diaTrabalho;
 

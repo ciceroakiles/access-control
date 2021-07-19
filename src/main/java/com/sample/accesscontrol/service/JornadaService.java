@@ -9,18 +9,17 @@ import com.sample.accesscontrol.repository.FuncRepository;
 import com.sample.accesscontrol.repository.JornadaRepository;
 import com.sample.accesscontrol.utils.DataHora;
 import java.util.List;
-import java.util.NoSuchElementException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class JornadaService {
+public class JornadaService extends CommonService {
     
     private JornadaMapper jornadaMapper = JornadaMapper.INSTANCE;
 
     private JornadaRepository jornadaRepository;
     private FuncRepository funcRepository;
-
+    
     @Autowired
     public JornadaService(JornadaRepository jornadaRepository, FuncRepository funcRepository) {
         this.jornadaRepository = jornadaRepository;
@@ -43,13 +42,11 @@ public class JornadaService {
         }
         jornada.setFunc(findFuncById(jornadaDTO.getIdFunc()));
         jornadaRepository.save(jornada);
-        return criaMessageResponse(msgSucesso(jornadaDTO));
+        return super.criaMessageResponse(msgSucesso(jornadaDTO));
     }
 
-    // Busca de funcionário por id
-    private Funcionario findFuncById(Long id) {
-        return funcRepository.findById(id)
-            .orElseThrow(() -> new NoSuchElementException("Funcionário não encontrado"));
+    private Funcionario findFuncById(Long idFunc) {
+        return funcRepository.getById(idFunc);
     }
 
     private JornadaDTO setEntrada(JornadaDTO jornadaDTO) {
@@ -81,9 +78,5 @@ public class JornadaService {
         if (jornadaDTO.getHoraInicio() != null) message += "\nEntrada: " + jornadaDTO.getHoraInicio();
         if (jornadaDTO.getHoraFim() != null) message += "\nSaída: " + jornadaDTO.getHoraFim();
         return message;
-    }
-
-    private MessageResponseDTO criaMessageResponse(String msg) {
-        return MessageResponseDTO.builder().message(msg).build();
     }
 }

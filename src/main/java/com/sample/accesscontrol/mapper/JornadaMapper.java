@@ -11,8 +11,10 @@ public interface JornadaMapper {
     
     JornadaMapper INSTANCE = Mappers.getMapper(JornadaMapper.class);
 
-    @Mapping(target = "diaTrabalho", source = "diaTrabalho", dateFormat = "dd-MM-yyyy")
+    @Mapping(source = "diaTrabalho", target = "diaTrabalho", dateFormat = "dd-MM-yyyy")
+    @Mapping(source = "idFunc", target = "func.idFunc")
     Jornada toModel(JornadaDTO jornadaDTO);
 
+    @Mapping(source = "func.idFunc", target = "idFunc")
     JornadaDTO toDto(Jornada jornada);
 }
