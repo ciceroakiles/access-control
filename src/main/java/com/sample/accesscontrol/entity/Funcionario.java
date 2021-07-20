@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -30,5 +32,6 @@ public class Funcionario {
     private LocalDate dataNasc;
 
     @OneToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Cargo cargo;
 }

@@ -26,8 +26,11 @@ public class JornadaService extends CommonService {
         this.funcRepository = funcRepository;
     }
 
-    public MessageResponseDTO saveJornada(JornadaDTO jornadaDTO) {
+    // PUT
+    public MessageResponseDTO saveJornada(Long id) {
         Jornada jornada = new Jornada();
+        JornadaDTO jornadaDTO = new JornadaDTO();
+        jornadaDTO.setIdFunc(id);
         jornadaDTO.setDiaTrabalho(DataHora.getDia());
         // Verifica se já existe registro com campo horaInicio
         JornadaDTO exit = verificaSaida(jornadaDTO);

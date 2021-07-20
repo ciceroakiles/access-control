@@ -1,7 +1,9 @@
-// Alguns comandos do Gradle para fins de verificação:
-// "gradlew build --refresh-dependencies"
-// "gradlew clean build"
-// "gradlew bootRun"
+/*
+ * Alguns comandos do Gradle para fins de verificação:
+ * gradlew build --refresh-dependencies
+ * gradlew clean build
+ * gradlew bootRun
+ */
 
 plugins {
 	id 'org.springframework.boot' version '2.5.2'
