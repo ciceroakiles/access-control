@@ -12,7 +12,8 @@ Dessa forma, um objeto do tipo "jornada" (o qual representa uma jornada de traba
 No endpoint jornada, basta enviar uma requisição do tipo PUT com o id do funcionário para gerar e registrar a hora de entrada, e uma segunda vez para que o mesmo seja feito com a hora de saída.
 
 O que foi utilizado:
-* Spring Boot com Gradle e JPA;
+* Spring Boot com Gradle;
+* Spring Data JPA;
 * Banco de dados H2;
 * Lombok + MapStruct;
 * Swagger2.
